@@ -65,7 +65,7 @@ public class CustomView extends View {
                                     Snackbar.make(view, "1ый сектор\n " + "X = " + motionEvent.getX() + "Y = " + motionEvent.getY(), Snackbar.LENGTH_SHORT).show();
                                 }
                                 view.performClick();
-                                CustomView.this.Invalidate(1, CustomView.this);
+                                CustomView.this.invalidate(1, CustomView.this);
 
                             }
 
@@ -78,7 +78,7 @@ public class CustomView extends View {
                                     Snackbar.make(view, "2ый сектор\n " + "X = " + motionEvent.getX() + "Y = " + motionEvent.getY(), Snackbar.LENGTH_SHORT).show();
                                 }
                                 view.performClick();
-                                CustomView.this.Invalidate(2, CustomView.this);
+                                CustomView.this.invalidate(2, CustomView.this);
                             }
 
                             if (customX <= 540 && customY > 800) {
@@ -90,7 +90,7 @@ public class CustomView extends View {
                                     Snackbar.make(view, "3ий сектор\n " + "X = " + motionEvent.getX() + "Y = " + motionEvent.getY(), Snackbar.LENGTH_SHORT).show();
                                 }
                                 view.performClick();
-                                CustomView.this.Invalidate(3, CustomView.this);
+                                CustomView.this.invalidate(3, CustomView.this);
                             }
 
                             if (customX >= 540 && customY > 800) {
@@ -102,7 +102,7 @@ public class CustomView extends View {
                                     Snackbar.make(view, "4ый сектор\n " + "X = " + motionEvent.getX() + "Y = " + motionEvent.getY(), Snackbar.LENGTH_SHORT).show();
                                 }
                                 view.performClick();
-                                CustomView.this.Invalidate(4, CustomView.this);
+                                CustomView.this.invalidate(4, CustomView.this);
                             }
 
                             if (Math.sqrt(Math.pow(Math.abs(customX) - centerX, 2) + (Math.pow(Math.abs(customY) - centerY, 2))) <= getSmallRadius()) {
@@ -114,7 +114,7 @@ public class CustomView extends View {
                                     Snackbar.make(view, "Маленький сектор\n " + "X = " + motionEvent.getX() + "Y = " + motionEvent.getY(), Snackbar.LENGTH_SHORT).show();
                                 }
                                 view.performClick();
-                                CustomView.this.Invalidate(5, CustomView.this);
+                                CustomView.this.invalidate(5, CustomView.this);
                             }
                             return true;
                         }
@@ -132,7 +132,7 @@ public class CustomView extends View {
         return 100;
     }
 
-    private static int Randomize() {
+    private static int randomize() {
         return (int) (Math.random() * colors.length);
     }
 
@@ -160,35 +160,35 @@ public class CustomView extends View {
         return rectF;
     }
 
-    private void SetColor(int Place) {
+    private void setColor(int Place) {
 
         switch (Place) {
             case 1:
-                p1.setColor(colors[Randomize()]);
+                p1.setColor(colors[randomize()]);
 
                 break;
 
             case 2:
-                p2.setColor(colors[Randomize()]);
+                p2.setColor(colors[randomize()]);
 
                 break;
 
             case 3:
-                p3.setColor(colors[Randomize()]);
+                p3.setColor(colors[randomize()]);
 
                 break;
 
             case 4:
-                p4.setColor(colors[Randomize()]);
+                p4.setColor(colors[randomize()]);
 
                 break;
 
             case 5:
-                p1.setColor(colors[Randomize()]);
-                p2.setColor(colors[Randomize()]);
-                p3.setColor(colors[Randomize()]);
-                p4.setColor(colors[Randomize()]);
-                psmall.setColor(colors[Randomize()]);
+                p1.setColor(colors[randomize()]);
+                p2.setColor(colors[randomize()]);
+                p3.setColor(colors[randomize()]);
+                p4.setColor(colors[randomize()]);
+                psmall.setColor(colors[randomize()]);
 
                 break;
         }
@@ -201,8 +201,8 @@ public class CustomView extends View {
         centerY = h / 2;
     }
 
-    public void Invalidate(int Place, @org.jetbrains.annotations.NotNull CustomView view) {
-        SetColor(Place);
+    public void invalidate(int Place, @org.jetbrains.annotations.NotNull CustomView view) {
+        setColor(Place);
         view.invalidate();
     }
 
