@@ -5,13 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TrueFalse extends AppCompatActivity implements View.OnClickListener {
-private RadioButton toast, snack;
-private Button buttonOk;
+public class SwitchActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private RadioButton toast, snack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,16 +18,16 @@ private Button buttonOk;
         setContentView(R.layout.truefalse);
         toast = findViewById(R.id.Toast);
         snack = findViewById(R.id.Snackbar);
-        buttonOk = findViewById(R.id.OK);
+        Button buttonOk = findViewById(R.id.OK);
         buttonOk.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.OK){
+        if (view.getId() == R.id.OK) {
             Intent intent = new Intent();
             if (toast.isChecked()) intent.putExtra("Tag", 1);
-            if (snack.isChecked()) intent.putExtra("Tag",2);
+            if (snack.isChecked()) intent.putExtra("Tag", 2);
             setResult(RESULT_OK, intent);
             finish();
         }
